@@ -7,8 +7,55 @@
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
+
+	<div class="row" style="width: 300px;">
+		<div class="container">
+				<h6 class="teal-text" style="font-weight: bold;">Hey Homie, Wassup.. Please fill the details of your cyberroam account.</h6>
+		</div>
+		<hr>
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <input placeholder="Roll number" id="roll_no" type="text" class="validate">
+          <label for="first_name">User Name</label>
+        </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate">
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <center>
+      <a class="waves-effect waves-light btn">Save</a>
+	  </center>
+
+	</div>
+    </form>
+</div>
+		
+	<div class="row" style="width: 300px;display: none;" id="after_login">
+		<div class="container">
+			<h6 class="teal-text" style="font-weight: bold;">Hey Homie, Your details are safe with me and they are here...</h6>
+		</div>
+		<hr>
+		<div class="row">
+			<div class="col s12">
+				<h6 > Username :<span class="blue-text"> 1140650</span>  </h6>
+			</div>
+
+			<div class="col s12">
+				<h6 > Password :<span class="blue-text"> abhik</span>  </h6>
+			</div>
+
+      <center>
+      <a class="waves-effect waves-light btn">Edit</a>
+	  </center>
+		</div>
+
+	</div>
 
   <!--  Scripts-->
   <script src="js/jquery-3.2.1.min.js"></script>
