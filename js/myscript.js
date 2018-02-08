@@ -1,10 +1,14 @@
+var user_name,user_password,login_btn,msg_div,msg_value;
+
 $(document).ready(function($) {
 
 		 var all_inputs=$(":input");
-
-		 var user_name=all_inputs[1];
-		 var user_password=all_inputs[2];
-		 check_user_storage();
+		  user_name=all_inputs[1];
+		  user_password=all_inputs[2];
+		  login_btn=$("#logincaption");
+		  msg_div=$("#msgDiv");
+		  check_user_storage();
+		  
 });
 
 chrome.runtime.onMessage.addListener(
@@ -27,29 +31,32 @@ function check_user_storage() {
 					username:items.user_details.username,
 					password:items.user_details.password
 				};
-					chrome.runtime.sendMessage({message_details:message_details}, function(response) {});
-					console.log('user details found');
+					attempt_login(message_details.username,message_details.password);
 			}else{
 				message_details={
 					message:"show",
 					username:null,
 					password:null
 				};
-				console.log('user details empty');
-				chrome.runtime.sendMessage({message_details:message_details}, function(response) {});
 			}
 		}else{
 	      console.log('Chrome Runtime Error : '+chrome.runtime.error);
 	 	}
 		});
-	}
+}
+
+function attempt_login (u,p) {
+		user_name.value=u;
+		user_password.value=p;
+		login_btn.click();
+		setTimeout(function () {msg_value=msg_div.find('xmp')[0].innerHTML;}, 1000);
+}	
 
 function save_changes (username,password,sendResponse) {
 	 	var user_details={
 		 	username:username,
 		 	password:password
 		 }
-		 
 		 chrome.storage.sync.set({'user_details':user_details}, function() {
 		 	console.log('Saved details');
 	      });	

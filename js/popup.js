@@ -31,7 +31,6 @@ $("#save_btn").click(function(event) {
 	}
 }); 
 
-$(document).ready(function($) {
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     var message_details=request.message_details;
@@ -46,4 +45,3 @@ chrome.runtime.onMessage.addListener(
 	   	$("#after_login").show();  
     }
   });	
-});
